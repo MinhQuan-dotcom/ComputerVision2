@@ -5,3 +5,8 @@ __pycache__/
 Thumbs.db
 .venv/
 venv/
+
+# dữ liệu gốc, nặng, không đưa lên git
+*.tar.gz
+*.tgz
+oxford_goc/
