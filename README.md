@@ -11,11 +11,13 @@ Quy ước chung của nhóm (kiểu ảnh, tọa độ, định dạng đầu r
 | `common.py` | 1 | Xong |
 | `n1_harris.py` | 1 | Xong |
 | `kiem_chung_nguoi1.py` | 1 | Xong (A1, A2, A4) |
-| `n2_harris_laplace.py` | 2 | Chưa có |
-| `n3_anms.py` | 3 | Chưa có |
+| `n2_harris_laplace.py`, `kiem_chung_nguoi_2.py` | 2 | Xong (A3 + thí nghiệm A1) |
+| `n3_anms.py`, `kiem_chung_nguoi3.py` | 3 | Xong (A5 + thí nghiệm A2) |
 | `n4_rg.py` | 4 | Chưa có |
 | `n5_srg.py` | 5 | Chưa có |
 | `anh/` | cả nhóm | Ảnh dùng trong bài |
+| `anh/oxford/` | 1 | 8 bộ ảnh Oxford Affine đã chuyển xám, thu nhỏ 512 px, kèm homography (xem README trong đó) |
+| `tools/chuan_bi_oxford.py` | 1 | Script xử lý bộ Oxford từ file gốc |
 | `ket_qua/` | cả nhóm | Hình xuất ra từ các script kiểm chứng |
 
 ## Cài đặt và chạy
@@ -36,6 +38,16 @@ pts = harris_classic(img)                      # (N, 3): row, col, response
 img2, tf = make_scale(img, 3)                  # tf(row, col) ảnh cũ -> ảnh mới
 rep = repeatability(pts, harris_classic(img2), tf, img2.shape)
 ```
+
+## Bộ ảnh Oxford
+
+```python
+from common import load_oxford
+img1, _ = load_oxford("boat", 1)
+img4, tf = load_oxford("boat", 4)     # tf chiếu điểm img1 -> img4, đưa thẳng vào repeatability
+```
+
+Cho thí nghiệm A1 nên dùng `boat` và `bark` (phóng to + xoay). File `.tar.gz` gốc không đưa lên git (đã có trong `.gitignore`).
 
 ## Kết quả kiểm chứng của Người 1
 

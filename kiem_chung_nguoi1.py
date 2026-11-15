@@ -4,10 +4,16 @@ Chạy:  python kiem_chung_nguoi1.py
 Hình lưu vào ket_qua/, ảnh thử lưu vào anh/.
 Khi ghép notebook: mỗi mục A1/A2/A4 dưới đây là một cell.
 """
+
+# **Prompt AI** — Người 1 · công cụ: Antigravity IDE · ngày 11/11/2026
+# > Viết phần import thư viện, khởi tạo đường dẫn thư mục ket_qua/ và anh/,
+# > cùng các hàm tạo ảnh tổng hợp (bàn cờ 8×8 ô 32px và cảnh đa giác lồi)
+# > để phục vụ kiểm chứng A1, A2, A4.
+
 import os
 
 import matplotlib
-matplotlib.use("Agg")  # chạy được không cần màn hình; trong notebook thì bỏ dòng này
+matplotlib.use("Agg")
 
 import cv2
 import matplotlib.pyplot as plt
@@ -59,7 +65,15 @@ def luu_anh(img, ten):
     cv2.imwrite(os.path.join(ANH, ten), np.round(np.clip(img, 0, 1) * 255).astype(np.uint8))
 
 
-# ---------------------------------------------------------------- A1. Bàn cờ
+# ============================================================
+# KIỂM CHỨNG A1 — Bàn cờ tổng hợp
+# ============================================================
+
+# **Prompt AI** — Người 1 · công cụ: Antigravity IDE · ngày 11/11/2026
+# > Phát hiện góc trên ảnh bàn cờ bằng harris_classic, đối chiếu với 49
+# > giao điểm chuẩn (sai số <= 1 px), in thống kê ĐẠT/CHƯA ĐẠT và lưu
+# > hình trực quan hóa vào ket_qua/a1_ban_co.png.
+
 print("=" * 60)
 print("A1. Bàn cờ tổng hợp")
 canh, n_o = 32, 8
@@ -90,7 +104,16 @@ fig.tight_layout()
 fig.savefig(os.path.join(OUT, "a1_ban_co.png"), dpi=120)
 plt.close(fig)
 
-# ---------------------------------------------------------------- A2. Quay 30°
+
+# ============================================================
+# KIỂM CHỨNG A2 — Bất biến phép quay (30°)
+# ============================================================
+
+# **Prompt AI** — Người 1 · công cụ: Antigravity IDE · ngày 11/11/2026
+# > Tạo ảnh cảnh tổng hợp, xoay 30 độ bằng make_rotation, chạy harris_classic
+# > trên cả hai ảnh và tính repeatability với eps=3.0 px. Vẽ ảnh gốc và ảnh
+# > quay kèm điểm chiếu sang ket_qua/a2_quay_30.png.
+
 print("=" * 60)
 print("A2. Bất biến phép quay (30°)")
 canh_th = tao_canh_tong_hop()
@@ -114,7 +137,17 @@ fig.tight_layout()
 fig.savefig(os.path.join(OUT, "a2_quay_30.png"), dpi=120)
 plt.close(fig)
 
-# ---------------------------------------------------------------- A4. Đối chiếu OpenCV
+
+# ============================================================
+# KIỂM CHỨNG A4 — Đối chiếu với cv2.cornerHarris
+# ============================================================
+
+# **Prompt AI** — Người 1 · công cụ: Antigravity IDE · ngày 11/11/2026
+# > Đối chiếu kết quả harris_classic tự cài đặt với cv2.cornerHarris
+# > (blockSize=5, ksize=3, k=0.04) trên 3 ảnh (bàn cờ, cảnh tổng hợp,
+# > cảnh quay 30°). Tính tỉ lệ điểm khớp trong bán kính 2px, 3px và lưu
+# > hình so sánh vào ket_qua/a4_doi_chieu_opencv.png.
+
 # đối chiếu thư viện
 print("=" * 60)
 print("A4. Đối chiếu với cv2.cornerHarris")

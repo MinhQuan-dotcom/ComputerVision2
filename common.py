@@ -5,6 +5,7 @@ Quy ước (xem file Quy_uoc_chung):
 - Tọa độ luôn là (row, col).
 """
 import math
+import os
 import time
 
 import cv2
@@ -92,6 +93,42 @@ def make_rotation(img, deg, fill=None):
         return y_new, x_new
 
     return out, transform
+
+
+# ---------------------------------------------------------------- bộ ảnh Oxford
+OXFORD_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "anh", "oxford")
+
+
+def homography_transform(H):
+    """Biến ma trận homography 3x3 (theo quy ước (x, y) = (col, row) của bộ Oxford)
+    thành hàm transform(row, col) -> (row, col) dùng được cho repeatability.
+    """
+    H = np.asarray(H, dtype=np.float64)
+
+    def transform(r, c):
+        r = np.asarray(r, dtype=np.float64)
+        c = np.asarray(c, dtype=np.float64)
+        x = H[0, 0] * c + H[0, 1] * r + H[0, 2]
+        y = H[1, 0] * c + H[1, 1] * r + H[1, 2]
+        w = H[2, 0] * c + H[2, 1] * r + H[2, 2]
+        return y / w, x / w
+
+    return transform
+
+
+def load_oxford(ten, k=1):
+    """Đọc ảnh thứ k (1..6) của bộ Oxford `ten` (bark, bikes, boat, graf, leuven, trees, ubc, wall).
+
+    Ảnh đã được đổi sang xám và thu nhỏ về cạnh dài 512 px.
+    -> (ảnh, transform). transform(row, col) chiếu điểm từ ảnh 1 sang ảnh k
+       (k = 1 thì là phép đồng nhất).
+    """
+    img = load_gray(os.path.join(OXFORD_DIR, ten, f"img{k}.png"))
+    if k == 1:
+        H = np.eye(3)
+    else:
+        H = np.loadtxt(os.path.join(OXFORD_DIR, ten, f"H1to{k}.txt"))
+    return img, homography_transform(H)
 
 
 # ---------------------------------------------------------------- phần B
