@@ -5,7 +5,7 @@ Hình lưu vào ket_qua/, ảnh tự tạo lưu vào anh/.
 
 """
 
-# **Prompt AI** — Người 3 · công cụ: Antigravity IDE · ngày 11/11/2026
+# **Prompt AI** — Người 3 · công cụ: Antigravity IDE · ngày 10/11/2026
 # > Viết phần import, hằng đường dẫn, hàm tính khoảng cách láng giềng gần nhất
 # > kc_lang_gieng, hàm giảm tương phản nửa trái ảnh và khởi tạo tập ứng viên
 # > Harris (thresh_rel=0.001) trên ảnh oxford/boat/img1.
@@ -58,7 +58,7 @@ ung_vien = harris_classic(img, thresh_rel=THRESH_UNG_VIEN)
 # KIỂM CHỨNG A5 — Phân bố điểm: top_n vs ANMS
 # ============================================================
 
-# **Prompt AI** — Người 3 · công cụ: Antigravity IDE · ngày 11/11/2026
+# **Prompt AI** — Người 3 · công cụ: Antigravity IDE · ngày 10/11/2026
 # > So sánh độ phủ lưới (grid_occupancy) và khoảng cách láng giềng gần nhất
 # > giữa top_n và anms (c_robust=0.9) với N=100 và N=300 trên cùng tập ứng viên.
 # > Vẽ lưới 2×2 và lưu vào ket_qua/a5_topn_vs_anms.png.
@@ -84,7 +84,7 @@ plt.close(fig)
 # 6.1 — Bằng chứng khác biệt khi giảm tương phản cục bộ
 # ============================================================
 
-# **Prompt AI** — Người 3 · công cụ: Antigravity IDE · ngày 11/11/2026
+# **Prompt AI** — Người 3 · công cụ: Antigravity IDE · ngày 10/11/2026
 # > Nén tương phản nửa trái ảnh xuống 30%, chạy harris_classic lấy ứng viên
 # > rồi chọn N=100 điểm bằng top_n và anms. Tính tỉ lệ điểm rơi vào nửa trái,
 # > vẽ hình đối chiếu có vạch chia đôi ảnh lưu vào ket_qua/a2_bang_chung_tuong_phan.png.
@@ -118,7 +118,7 @@ plt.close(fig)
 # 6.2 — Quét tham số (tương phản nửa trái, số điểm N, c_robust)
 # ============================================================
 
-# **Prompt AI** — Người 3 · công cụ: Antigravity IDE · ngày 11/11/2026
+# **Prompt AI** — Người 3 · công cụ: Antigravity IDE · ngày 10/11/2026
 # > Thực hiện 3 phép quét tham số: (6.2a) quét hệ số tương phản nửa trái từ
 # > 1.0 xuống 0.1; (6.2b) quét số điểm N từ 25 đến tổng ứng viên; (6.2c) quét
 # > c_robust từ 0.5 đến 1.0 đo kc láng giềng và số điểm r=inf. Vẽ 3 biểu đồ
@@ -195,7 +195,7 @@ plt.close(fig)
 # 6.3 — Cơ chế và giải thích hiện tượng (ANMS vs top-N)
 # ============================================================
 
-# **Prompt AI** — Người 3 · công cụ: Antigravity IDE · ngày 11/11/2026
+# **Prompt AI** — Người 3 · công cụ: Antigravity IDE · ngày 10/11/2026
 # > Viết đoạn giải thích cơ chế của ANMS so với top_n theo 3 ý: đại lượng
 # > tính khác nhau (f_i vs bán kính ức chế r_i), bước áp dụng, và giải thích
 # > kết quả thực nghiệm ở mục 6.1, 6.2a, 6.2b, 6.2c.

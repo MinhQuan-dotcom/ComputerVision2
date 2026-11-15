@@ -4,7 +4,7 @@ Chạy từ thư mục ComputerVision2:  python kiem_chung_nguoi4.py
 Hình lưu vào ket_qua/, ảnh thử lưu vào anh/.
 """
 
-# **Prompt AI** — Người 4 · công cụ: Antigravity IDE · ngày 11/11/2026
+# **Prompt AI** — Người 4 · công cụ: Antigravity IDE · ngày 10/11/2026
 # > Viết phần import, hằng đường dẫn, hàm tạo ảnh hai vùng chênh delta kèm dải
 # > sáng dọc (ramp=0.15) và nhiễu Gauss (noise=0.03), cùng các hàm tính độ chính
 # > xác (do_chinh_xac) và tỉ lệ rò vùng (ti_le_ro).
@@ -66,7 +66,7 @@ luu_anh(img, "b_hai_vung_delta02.png")
 # KIỂM CHỨNG B4 — Đối chiếu Region Growing (stack/queue) và SRG
 # ============================================================
 
-# **Prompt AI** — Người 4 · công cụ: Antigravity IDE · ngày 11/11/2026
+# **Prompt AI** — Người 4 · công cụ: Antigravity IDE · ngày 10/11/2026
 # > Chạy region_growing_classic (order="stack" và "queue", T=0.08) cùng srg
 # > trên ảnh hai vùng (delta=0.2). Thống kê số pixel khác nhau giữa các cặp,
 # > tỉ lệ pixel chưa gán nhãn, và vẽ lưới 1×4 lưu vào ket_qua/b4_rg_vs_srg.png.
@@ -104,7 +104,7 @@ plt.close(fig)
 # MINH HỌA TIẾN TRÌNH — srg_step_frames (8 mốc thời gian)
 # ============================================================
 
-# **Prompt AI** — Người 4 · công cụ: Antigravity IDE · ngày 11/11/2026
+# **Prompt AI** — Người 4 · công cụ: Antigravity IDE · ngày 10/11/2026
 # > Dùng srg_step_frames chụp 8 frame trong quá trình lan vùng của SRG,
 # > kiểm tra frame cuối trùng khớp srg và lưu hình ket_qua/b_srg_tien_trinh.png.
 
@@ -126,7 +126,7 @@ plt.close(fig)
 # 6.1 — Bằng chứng: RG phụ thuộc ngưỡng T vs SRG không cần T
 # ============================================================
 
-# **Prompt AI** — Người 4 · công cụ: Antigravity IDE · ngày 11/11/2026
+# **Prompt AI** — Người 4 · công cụ: Antigravity IDE · ngày 10/11/2026
 # > So sánh RG ở 3 mức ngưỡng T = [0.06, 0.12, 0.18] với SRG trên ảnh hai vùng.
 # > In độ chính xác, tỉ lệ chưa gán, tỉ lệ rò vùng và lưu ket_qua/b_bang_chung_rg_vs_srg.png.
 
@@ -151,7 +151,7 @@ plt.close(fig)
 # 6.2a — Quét ngưỡng T × độ chênh delta giữa hai vùng
 # ============================================================
 
-# **Prompt AI** — Người 4 · công cụ: Antigravity IDE · ngày 11/11/2026
+# **Prompt AI** — Người 4 · công cụ: Antigravity IDE · ngày 10/11/2026
 # > Quét lưới 2 chiều giữa độ chênh delta trong [0.10, 0.40] và ngưỡng T trong
 # > [0.02, 0.40]. Vẽ heatmap độ chính xác của RG và đồ thị so sánh RG (T tốt nhất)
 # > với SRG, lưu vào ket_qua/b_quet_T_delta.png.
@@ -202,7 +202,7 @@ plt.close(fig)
 # 6.2b — Độ nhạy vị trí hạt giống trên ảnh thực (oxford/boat)
 # ============================================================
 
-# **Prompt AI** — Người 4 · công cụ: Antigravity IDE · ngày 11/11/2026
+# **Prompt AI** — Người 4 · công cụ: Antigravity IDE · ngày 10/11/2026
 # > Đánh giá độ nhạy hạt giống bằng seed_sensitivity (20 lần thử, jitter = 2, 5, 10 px)
 # > cho RG (T=0.10) và SRG trên ảnh oxford/boat/img1 thu nhỏ (256×205) với 5 hạt giống.
 # > Vẽ bản đồ tần suất đổi nhãn lưu vào ket_qua/b_do_nhay_hat_giong.png.
@@ -254,7 +254,7 @@ plt.close(fig)
 # 6.2c — So sánh lân cận 4-connectivity vs 8-connectivity
 # ============================================================
 
-# **Prompt AI** — Người 4 · công cụ: Antigravity IDE · ngày 11/11/2026
+# **Prompt AI** — Người 4 · công cụ: Antigravity IDE · ngày 10/11/2026
 # > Kiểm tra khả năng lan vùng của SRG dọc theo đường chéo mảnh 1 pixel
 # > khi dùng connectivity=4 so với connectivity=8.
 
@@ -278,7 +278,7 @@ for conn in (4, 8):
 # 6.3 — Giải thích cơ chế (RG vs SRG)
 # ============================================================
 
-# **Prompt AI** — Người 4 · công cụ: Antigravity IDE · ngày 11/11/2026
+# **Prompt AI** — Người 4 · công cụ: Antigravity IDE · ngày 10/11/2026
 # > Soạn phần giải thích cơ chế khác biệt giữa RG và SRG theo 3 câu hỏi:
 # > đại lượng tính khác nhau, bước thực hiện, và lý giải kết quả thực nghiệm
 # > ở các mục B4, 6.1, 6.2a, 6.2b, 6.2c.

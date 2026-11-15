@@ -5,7 +5,7 @@ Hình lưu vào ket_qua/, ảnh thử lưu vào anh/.
 Khi ghép notebook: mỗi mục A1/A2/A4 dưới đây là một cell.
 """
 
-# **Prompt AI** — Người 1 · công cụ: Antigravity IDE · ngày 11/11/2026
+# **Prompt AI** — Người 1 · công cụ: Antigravity IDE · ngày 9/11/2026
 # > Viết phần import thư viện, khởi tạo đường dẫn thư mục ket_qua/ và anh/,
 # > cùng các hàm tạo ảnh tổng hợp (bàn cờ 8×8 ô 32px và cảnh đa giác lồi)
 # > để phục vụ kiểm chứng A1, A2, A4.
@@ -69,7 +69,7 @@ def luu_anh(img, ten):
 # KIỂM CHỨNG A1 — Bàn cờ tổng hợp
 # ============================================================
 
-# **Prompt AI** — Người 1 · công cụ: Antigravity IDE · ngày 11/11/2026
+# **Prompt AI** — Người 1 · công cụ: Antigravity IDE · ngày 9/11/2026
 # > Phát hiện góc trên ảnh bàn cờ bằng harris_classic, đối chiếu với 49
 # > giao điểm chuẩn (sai số <= 1 px), in thống kê ĐẠT/CHƯA ĐẠT và lưu
 # > hình trực quan hóa vào ket_qua/a1_ban_co.png.
@@ -109,7 +109,7 @@ plt.close(fig)
 # KIỂM CHỨNG A2 — Bất biến phép quay (30°)
 # ============================================================
 
-# **Prompt AI** — Người 1 · công cụ: Antigravity IDE · ngày 11/11/2026
+# **Prompt AI** — Người 1 · công cụ: Antigravity IDE · ngày 9/11/2026
 # > Tạo ảnh cảnh tổng hợp, xoay 30 độ bằng make_rotation, chạy harris_classic
 # > trên cả hai ảnh và tính repeatability với eps=3.0 px. Vẽ ảnh gốc và ảnh
 # > quay kèm điểm chiếu sang ket_qua/a2_quay_30.png.
@@ -142,7 +142,7 @@ plt.close(fig)
 # KIỂM CHỨNG A4 — Đối chiếu với cv2.cornerHarris
 # ============================================================
 
-# **Prompt AI** — Người 1 · công cụ: Antigravity IDE · ngày 11/11/2026
+# **Prompt AI** — Người 1 · công cụ: Antigravity IDE · ngày 9/11/2026
 # > Đối chiếu kết quả harris_classic tự cài đặt với cv2.cornerHarris
 # > (blockSize=5, ksize=3, k=0.04) trên 3 ảnh (bàn cờ, cảnh tổng hợp,
 # > cảnh quay 30°). Tính tỉ lệ điểm khớp trong bán kính 2px, 3px và lưu
