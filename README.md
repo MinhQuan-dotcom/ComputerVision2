@@ -13,8 +13,8 @@ Quy ước chung của nhóm (kiểu ảnh, tọa độ, định dạng đầu r
 | `kiem_chung_nguoi1.py` | 1 | Xong (A1, A2, A4) |
 | `n2_harris_laplace.py`, `kiem_chung_nguoi_2.py` | 2 | Xong (A3 + thí nghiệm A1) |
 | `n3_anms.py`, `kiem_chung_nguoi3.py` | 3 | Xong (A5 + thí nghiệm A2) |
-| `n4_rg.py` | 4 | Chưa có |
-| `n5_srg.py` | 5 | Chưa có |
+| `n4_rg.py`, `kiem_chung_nguoi4.py` | 4 | Xong (B4 + thí nghiệm SRG vs RG) |
+| `n5_srg.py`, `kiem_chung_nguoi5.py` | 5 | Xong (B1, B2, B3, B5 + lazy/frozen, đồng hạng) |
 | `anh/` | cả nhóm | Ảnh dùng trong bài |
 | `anh/oxford/` | 1 | 8 bộ ảnh Oxford Affine đã chuyển xám, thu nhỏ 512 px, kèm homography (xem README trong đó) |
 | `tools/chuan_bi_oxford.py` | 1 | Script xử lý bộ Oxford từ file gốc |
